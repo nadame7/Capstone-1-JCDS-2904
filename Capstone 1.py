@@ -166,12 +166,12 @@ def tambah_review(user):
                 nomor_baru = int(input('Masukkan nomor review yang ingin ditambahkan: '))
             except ValueError:
                 print("❌ Nomor harus berupa angka.\n")
-                return
+                tampilkan_review(user)
         
             for review in data_reviews:
                 if review["nomor"] == nomor_baru:
                     print("❌ Nomor review sudah digunakan. Gunakan nomor yang lain.\n")
-                    return
+                    tambah_review(user)
 
             produk = input('Nama Produk: ')
 
@@ -179,10 +179,10 @@ def tambah_review(user):
                 rating = int(input("Rating (1-5): "))
                 if rating < 1 or rating > 5:
                     print("❌ Rating harus antara 1 sampai 5.\n")
-                    return
+                    tambah_review(user)
             except ValueError:
                 print("❌ Input rating harus berupa angka.\n")
-                return
+                tambah_review(user)
             
             komentar = input("Komentar: ")
 
@@ -330,7 +330,7 @@ def hapus_review(user):
                 nomor_hapus = int(input('Masukkan nomor review yang ingin dihapus 🔎 (Masukkan Angka): '))
             except ValueError:
                 print("❌ Input nomor harus berupa angka.\n")
-                return
+                hapus_review(user)
 
             review_ditemukan = None
             for review in data_reviews:
